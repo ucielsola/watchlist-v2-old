@@ -1,0 +1,12 @@
+:root {
+	/* Colors */
+	--dark-violet: #201825;
+	--light-violet: #998fbf;
+	--light-green: #a8efd8;
+	--button-bg: #3cbf95;
+	--white:#ffffff;
+	/* Font */
+	--font-family: 'Helvetica', sans-serif;
+	/* Effects */
+	--shadow: drop-shadow(4px 4px 3px rgba(60, 191, 149, 0.15));
+}

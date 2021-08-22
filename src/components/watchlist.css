@@ -1,0 +1,17 @@
+@import url("./root.css");
+
+.watchlist__container {
+	min-height: 100vh;
+	padding: 6rem 2rem;
+	background-color: var(--light-violet);
+}
+
+.watchlist__title {
+	margin-top: 0;
+	font-family: var(--font-family);
+	font-size: 2.2rem;
+}
+.watchlist__subtitle {
+	font-size: 1.1rem;
+	font-family: var(--font-family);
+}

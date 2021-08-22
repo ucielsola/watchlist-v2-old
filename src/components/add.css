@@ -1,0 +1,44 @@
+@import url('./root.css');
+
+.add__container {
+	min-height: 100vh;
+	padding: 6rem 2rem;
+	background-color: var(--light-violet);
+}
+
+.add__title {
+	margin-top: 0;
+	font-family: var(--font-family);
+	font-size: 2.2rem;
+}
+.add__subtitle {
+	font-size: 1.1rem;
+	font-family: var(--font-family);
+}
+
+.input__wrapper {
+	display: grid;
+	place-items: center;
+	margin-top: 2rem;
+}
+
+.input__wrapper input {
+	width: 70%;
+	padding: 0.5rem 0.5rem;
+	font-family: var(--font-family);
+	font-size: 1.2rem;
+	color: var(--white);
+	background-color: var(--dark-violet);
+	border-color: unset;
+	border-radius: 5px;
+	border: 0px solid var(--dark-violet);
+}
+
+.add__results {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+	place-items: center;
+	padding-top: 2rem;
+	list-style: none;
+}
