@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
-import "./fullcard.css";
+import posterPlaceholder from '../assets/poster-placeholder.png';
+import './fullcard.css';
 
 export const FullCard = ({ item, type }) => {
 	const { addItemToWatchlist, watchlist } = useContext(GlobalContext);
@@ -20,7 +21,11 @@ export const FullCard = ({ item, type }) => {
 						className="fullcard__poster"
 					/>
 				) : (
-					<div className="fullcard__placeholder"></div>
+					<img
+						className="fullcard__placeholder"
+						src={posterPlaceholder}
+						alt={`Placeholder for ${item.title} Poster`}
+					></img>
 				)}
 			</div>
 
