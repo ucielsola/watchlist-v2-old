@@ -3,6 +3,8 @@
 .fullcard__item {
 	display: flex;
 	flex-direction: row;
+	height: 315px;
+	width: 632.5px;
 	padding: 0.5rem;
 	border: 1px solid var(--dark-violet);
 	border-radius: 5px;
@@ -27,14 +29,18 @@
 }
 
 .fullcard__date {
-	padding-bottom: .5rem;
-	font-size: .9rem;
+	font-size: 0.9rem;
 	font-family: var(--font-family);
 	font-style: italic;
 	color: var(--white);
 }
 
 .fullcard__overview {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 10;
+	-webkit-box-orient: vertical;
+	padding-top: 0.7rem;
 	font-size: 1rem;
 	font-family: var(--font-family);
 	color: var(--white);

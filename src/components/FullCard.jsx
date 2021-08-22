@@ -31,10 +31,16 @@ export const FullCard = ({ item, type }) => {
 
 			<div className="fullcard__info">
 				<h3 className="fullcard__title">{item.title}</h3>
-				{item.release_date && (
+				{item.release_date ? (
 					<h4 className="fullcard__date">Released on {item.release_date.substring(0, 4)}</h4>
+				) : (
+					<h4 className="fullcard__date">-</h4>
 				)}
-				{item.overview && <p className="fullcard__overview">{item.overview}</p>}
+				{item.overview ? (
+					<p className="fullcard__overview">{item.overview}</p>
+				) : (
+					<p className="fullcard__overview">No overview found.</p>
+				)}
 
 				<div className="fullcard__controls">
 					<button
