@@ -10,6 +10,11 @@ export const FullCard = ({ item, type }) => {
 	let storedItems = watchlist.find((obj) => obj.id === item.id);
 
 	const itemDisabled = storedItems ? true : false; // disables AddButton if item exist
+	let overview = item.overview;
+	if (overview.length > 495) {
+		let truncated = overview.substring(0, 490);
+		overview = truncated + '...';
+	}
 
 	return (
 		<li className="fullcard__item" key={item.id}>
@@ -36,8 +41,8 @@ export const FullCard = ({ item, type }) => {
 				) : (
 					<h4 className="fullcard__date">-</h4>
 				)}
-				{item.overview ? (
-					<p className="fullcard__overview">{item.overview}</p>
+				{overview ? (
+					<p className="fullcard__overview">{overview}</p>
 				) : (
 					<p className="fullcard__overview">No overview found.</p>
 				)}

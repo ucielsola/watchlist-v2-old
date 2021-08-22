@@ -1,0 +1,12 @@
+.gif__container {
+	position: relative;
+	height: 300px;
+	display: grid;
+	place-items: center;
+	padding-top: 2rem;
+}
+
+.gif__img {
+	transform: scale(1.5);
+	max-height: 300px;
+}

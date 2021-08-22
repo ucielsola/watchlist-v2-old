@@ -36,10 +36,6 @@
 }
 
 .fullcard__overview {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 10;
-	-webkit-box-orient: vertical;
 	padding-top: 0.7rem;
 	font-size: 1rem;
 	font-family: var(--font-family);
@@ -50,4 +46,17 @@
 	position: absolute;
 	bottom: 0;
 	right: 0;
+}
+
+.fullcard__button {
+	background: var(--button-bg);
+	padding: 0.5rem;
+	border: 1px solid var(--dark-violet);
+	border-radius: 5px;
+	font-family: var(--font-family);
+	font-size: 1.1rem;
+	text-decoration: none;
+	color: var(--dark-violet);
+	filter: drop-shadow(4px 4px 3px rgba(60, 191, 149, 0.15));
+	cursor: pointer;
 }

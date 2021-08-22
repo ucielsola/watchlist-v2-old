@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FullCard } from './FullCard';
+import RandomGif from './RandomGif';
 import './add.css';
 
 export const Add = () => {
@@ -11,6 +12,7 @@ export const Add = () => {
 	const Search = (page) => (e) => {
 		e.preventDefault();
 		setPage(1);
+
 		setQuery(e.target.value);
 		fetch(
 			`https://api.themoviedb.org/3/search/multi?api_key=b8723cef7967276c30d0623e7338bcc4&language=en-US&page=1&include_adult=false&query=${e.target.value}&page=${page}`
@@ -19,7 +21,7 @@ export const Add = () => {
 			.then((data) => {
 				if (!data.errors) {
 					console.log(data);
-					console.log(page);
+					console.log('page is ' + page);
 					let arr = data.results.filter((item) => {
 						// Unifies name and title for Movies and TV Shows
 						if (item.media_type === 'tv') item.title = item.name;
@@ -80,9 +82,11 @@ export const Add = () => {
 					placeholder="Search for a Movie or TV Show"
 					value={query}
 					onChange={Search(page)}
+					// if (e.target.value.length >= 3)
 				/>
 			</div>
-			{results.length > 0 && (
+
+			{results.length > 0 ? (
 				<React.Fragment>
 					<ul className="add__results">
 						{results.map((item) => (
@@ -100,6 +104,8 @@ export const Add = () => {
 						</div>
 					)}
 				</React.Fragment>
+			) : (
+				<RandomGif />
 			)}
 		</div>
 	);
