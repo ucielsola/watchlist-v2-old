@@ -10,8 +10,9 @@ export const FullCard = ({ item, type }) => {
 	let storedItems = watchlist.find((obj) => obj.id === item.id);
 
 	const itemDisabled = storedItems ? true : false; // disables AddButton if item exist
+
 	let overview = item.overview;
-	if (overview.length > 495) {
+	if (overview.length > 495) { // limit character length for overview
 		let truncated = overview.substring(0, 490);
 		overview = truncated + '...';
 	}
