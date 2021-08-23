@@ -28,6 +28,9 @@
 .header__logo img {
 	width: 40px;
 }
+.header__menu-btn {
+	display: none;
+}
 
 .header__list {
 	display: flex;
@@ -104,4 +107,53 @@
 .switch__input:checked:after {
 	left: 20px;
 	box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05);
+}
+
+@media only screen and (max-width: 980px) {
+	.header__container {
+		padding: 0.6rem 1rem;
+		background-color: var(--dark-violet);
+	}
+	.header__brand h1 {
+		font-size: 1.2rem;
+	}
+	.header__logo img {
+		width: 28px;
+	}
+	.header__link {
+		padding-left: 1rem;
+	}
+	.header__nav {
+		display: flex;
+		align-items: center;
+		transition: all 0.2s ease-out;
+	}
+
+	.header__menu-btn {
+		position: absolute;
+		display: inline;
+		right: 1.2rem;
+		font-size: 2rem;
+		color: var(--white);
+	}
+	.header__list {
+		position: absolute;
+		display: flex;
+		right: 100%;
+		flex-direction: column;
+	}
+
+	.header__nav.open {
+		transform: translate(20%, 100%);
+		transition: all 0.2s ease-out;
+	}
+
+	.header__nav.open .header__list {
+		position: absolute;
+		display: flex;
+		right: 100%;
+		flex-direction: column;
+		background: black;
+		padding: 2rem;
+	}
 }
