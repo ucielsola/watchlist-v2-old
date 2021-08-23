@@ -12,9 +12,9 @@ export const Watchlist = () => {
 			<h3 className="watchlist__subtitle">Here you'll find all the Movies and TV Shows you want to watch!</h3>
 
 			{watchlist.length > 0 ? (
-				<div className="item-grid__container">
+				<div className="poster-card__container">
 					{watchlist.map((item) => (
-						<PosterCard item={item} type="watchlist" />
+						<PosterCard item={item} type="watchlist" key={item.id}/>
 					))}
 				</div>
 			) : (

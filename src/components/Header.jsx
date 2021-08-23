@@ -5,6 +5,14 @@ import { v4 as uuid_v4 } from 'uuid';
 import './header.css';
 
 export const Header = () => {
+	const NavClose = 'header__nav';
+	const NavOpen = 'header__nav open';
+	let NavState = 'header__nav';
+	const ToggleClass = () => {
+		if (NavState === 'header__nav') NavState = NavOpen;
+		if (NavState === 'header__nav open') NavState = NavClose;
+	};
+
 	return (
 		<header>
 			<div className="header__container">
@@ -19,7 +27,16 @@ export const Header = () => {
 						</div>
 					</Link>
 				</div>
-				<nav className="header__nav">
+				<div className="switch__wrapper">
+					<label htmlFor="switch" className="switch__label">
+						Dark Mode
+					</label>
+					<input name="switch" className="switch__input" type="checkbox"></input>
+				</div>
+				<div className="header__menu-btn" onClick={ToggleClass()}>
+					<i className="fas fa-bars"></i>
+				</div>
+				<nav className={NavState}>
 					<ul className="header__list">
 						<li className="header__link" key={uuid_v4()}>
 							<Link to="/">Watch List</Link>
@@ -34,12 +51,6 @@ export const Header = () => {
 						</li>
 					</ul>
 				</nav>
-				<div className="switch__wrapper">
-					<label htmlFor="switch" className="switch__label">
-						Dark Mode
-					</label>
-					<input name="switch" className="switch__input" type="checkbox"></input>
-				</div>
 			</div>
 		</header>
 	);
