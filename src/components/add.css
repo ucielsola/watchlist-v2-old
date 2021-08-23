@@ -42,3 +42,14 @@
 	padding-top: 2rem;
 	list-style: none;
 }
+
+.add__gif-container {
+	display: grid;
+	place-items: center;
+	width: 60%;
+	margin: 2rem auto;
+}
+
+.add__gif {
+	width: 100%;
+}
