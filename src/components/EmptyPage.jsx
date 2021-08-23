@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import escobar from '../assets/escobar.jpg';
+import TravoltaGif from '../assets/travolta.webp';
 import './empty-page.css';
 
 export const EmptyPage = () => {
@@ -18,7 +18,7 @@ export const EmptyPage = () => {
 					</Link>
 				</span>{' '}
 			</h3>
-			<img src={escobar} alt="Lonely Pablo Escobar Meme" className="empty-page__img" />
+			<img src={TravoltaGif} alt="Confused Travolta Gif Meme" className="empty-page__img" />
 		</div>
 	);
 };

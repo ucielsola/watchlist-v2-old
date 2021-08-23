@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FullCard } from './FullCard';
-import RandomGif from './RandomGif';
+import SearchGif from '../assets/search.webp';
 import './add.css';
 
 export const Add = () => {
@@ -105,7 +105,9 @@ export const Add = () => {
 					)}
 				</React.Fragment>
 			) : (
-				<RandomGif />
+				<div className="add__gif-container">
+					<img src={SearchGif} alt="Sarch GIF from Giphy.com" className="add__gif" />
+				</div>
 			)}
 		</div>
 	);
