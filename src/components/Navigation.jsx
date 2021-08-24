@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
 import { v4 as uuid_v4 } from 'uuid';
 import './navigation.css';
@@ -19,18 +19,19 @@ function Navigation() {
 			</div>
 			<nav className={'nav__container' + darkClass + openClass}>
 				<ul className={'nav__list' + darkClass}>
-					<li className={'nav__link' + darkClass} key={uuid_v4()}>
-						<Link to="/">Watch List</Link>
+					<li className={'nav__link' + darkClass} key={uuid_v4()} onClick={() => toggleShowNav(false)}>
+						<NavLink to="/">Watch List</NavLink>
 					</li>
-					<li className={'nav__link' + darkClass} key={uuid_v4()}>
-						<Link to="/watched">Watched</Link>
+					<li className={'nav__link' + darkClass} key={uuid_v4()} onClick={() => toggleShowNav(false)}>
+						<NavLink to="/watched">Watched</NavLink>
 					</li>
-					<li className={'nav__link' + darkClass} key={uuid_v4()}>
+					<li className={'nav__link' + darkClass} key={uuid_v4()} onClick={() => toggleShowNav(false)}>
 						<Link to="/add" className={'nav__btn' + darkClass}>
 							+ Add
 						</Link>
 					</li>
 				</ul>
+				<div className="nav__overlay" onClick={() => toggleShowNav(false)}></div>
 			</nav>
 		</React.Fragment>
 	);
