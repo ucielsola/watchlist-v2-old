@@ -1,16 +1,22 @@
 @import url('./root.css');
 /* Dark theme settings athe the bottom */
+
 .header__container {
 	position: fixed;
-	z-index: 1000;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	z-index: 900;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	width: 100%;
 	padding: 1rem 2rem;
 	box-shadow: var(--box-shadow);
 	background-color: var(--light-100);
 }
+
+.header__brand {
+	display: flex;
+	align-items: center;
+}
+
 .header__brand a {
 	text-decoration: none;
 }
@@ -25,16 +31,17 @@
 
 .header__logo {
 	display: flex;
+	width: 43px;
 }
 
 .header__logo img {
-	width: 40px;
+	width: 100%;
 }
 
 @media only screen and (max-width: 1020px) {
 	.header__container {
 		padding: 0.6rem 1rem;
-		background-color: var(--dark-violet);
+		background-color: var(--light-100);
 	}
 	.header__brand h1 {
 		font-size: 1.2rem;

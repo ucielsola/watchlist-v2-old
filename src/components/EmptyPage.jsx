@@ -17,7 +17,7 @@ export const EmptyPage = () => {
 					😢
 				</span>
 				Such emptiness... Lets find something to watch!{' '}
-				<span>
+				<span className="btn">
 					<Link to="/add" className={'empty-page__add-btn' + darkClass}>
 						+ Add
 					</Link>

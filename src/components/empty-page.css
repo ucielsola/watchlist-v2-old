@@ -35,3 +35,10 @@
 .empty-page__title.dark {
 	color: var(--dark-txt);
 }
+
+@media only screen and (max-width: 1024px) {
+	.empty-page__title span.btn {
+		display: block;
+		margin-top: 1rem;
+	}
+}

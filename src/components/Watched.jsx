@@ -14,7 +14,7 @@ export const Watched = () => {
 
 	return (
 		<div className={'watched__container' + darkClass}>
-			<h2 className={'watched__title' + darkClass}>Your Watch List</h2>
+			<h2 className={'watched__title' + darkClass}>Your Watched List</h2>
 			<h3 className={'watched__subtitle' + darkClass}>
 				Here you'll find all the Movies and TV Shows you've watched'!
 			</h3>

@@ -3,6 +3,7 @@
 .add__container {
 	min-height: 100vh;
 	padding: 6rem 2rem;
+	overflow: hidden;
 	background-color: var(--light-100);
 }
 
@@ -32,7 +33,7 @@
 	font-family: var(--font-family);
 	font-size: 1.2rem;
 	color: var(--dark-txt);
-	border-radius: 5px;
+	border-radius: var(--radius);
 	border: 2px solid var(--primary);
 	background-color: var(--dark-300);
 }

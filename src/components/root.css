@@ -23,12 +23,12 @@
 	--fullcard-light-bg: #d4d8db;
 	--btn-disabled: grey;
 
-
 	/* Font */
 	--font-family: 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif;
 	/* Effects */
 	--shadow: drop-shadow(4px 4px 3px rgba(79, 79, 79, 0.261));
 	--box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	--radius: 5px;
 }
 
 * {

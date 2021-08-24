@@ -3,6 +3,7 @@
 .watched__container {
 	min-height: 100vh;
 	padding: 6rem 2rem;
+	overflow: hidden;
 	background-color: var(--light-100);
 }
 

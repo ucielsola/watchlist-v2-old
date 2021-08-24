@@ -42,7 +42,7 @@ export const Add = () => {
 			<div className={'input__wrapper' + darkClass}>
 				<input
 					type="text"
-					placeholder="Search for a Movie or TV Show"
+					placeholder="Search..."
 					value={query}
 					onChange={Search}
 					// if (e.target.value.length >= 3)

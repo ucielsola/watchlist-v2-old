@@ -1,15 +1,18 @@
 @import url('./root.css');
 
 .poster-card__container {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
+	display: grid;
+	place-items: center;
+	gap: 1rem;
+	grid-auto-rows: 22rem;
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 	margin-top: 2rem;
 }
 
 .poster-card {
 	position: relative;
 	width: fit-content;
+	height: fit-content;
 	filter: var(--shadow);
 	transition: all 0.15s ease-in-out;
 }
@@ -28,8 +31,13 @@
 	width: 100%;
 	height: 100%;
 	opacity: 0;
+	border-radius: var(--radius);
 	background: rgba(0, 0, 0, 0.3);
 	transition: all 0.2s ease-in-out;
+}
+
+.poster-card img {
+	border-radius: var(--radius);
 }
 
 .poster-card-controls__container {
@@ -47,17 +55,56 @@
 	margin: 0 0.4rem;
 	padding: 0.1rem;
 	border: 1px solid var(--dark-violet);
-	border-radius: 4px;
+	border-radius: var(--radius);
 	text-decoration: none;
 	cursor: pointer;
 	filter: var(--shadow);
 	font-size: 1.2rem;
 }
 
-.fa-times {
-	color: var(--white);
+.fa-times,
+.fa-eye {
+	color: var(--dark-txt);
 }
 
+.poster-card__ctrl-btn.eye {
+	background-color: var(--primary);
+}
 .poster-card__ctrl-btn.times {
-	background: red;
+	background-color: red;
+}
+
+@media only screen and (max-width: 1024px) {
+	.poster-card {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.poster-card:hover > * {
+		opacity: unset;
+		transition: unset;
+	}
+
+	.poster-card__overlay {
+		display: none;
+	}
+	.poster-card-controls__container {
+		opacity: 1;
+	}
+
+	.poster-card-controls__container {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 100%;
+		bottom: 1rem;
+		right: 0;
+		transition: all 0.12s ease-in-out;
+	}
+
+	.poster-card__ctrl-btn {
+		font-size: 1.5rem;
+	}
 }

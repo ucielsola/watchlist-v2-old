@@ -3,6 +3,7 @@
 .switch__wrapper {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .label-wrapper {
@@ -69,4 +70,17 @@
 .switch__input.dark:after {
 	content: '🌛';
 	background-color: var(--dark-200);
+}
+
+@media only screen and (max-width: 1024px) {
+	.switch__wrapper {
+		justify-content: flex-end;
+	}
+
+	.switch__label {
+		display: none;
+	}
+	.label-wrapper {
+		display: none;
+	}
 }
