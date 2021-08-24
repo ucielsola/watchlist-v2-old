@@ -11,7 +11,6 @@ export const ThemeSwitcher = () => {
 			{themeName}Theme
 		</label>
 	);
-	console.log(darkTheme);
 	return (
 		<div className="switch__wrapper" onClick={() => setDarkTheme(!darkTheme)}>
 			<div className="label-wrapper">{!darkTheme && label}</div>
