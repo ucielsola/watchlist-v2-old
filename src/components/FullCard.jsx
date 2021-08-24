@@ -1,9 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import { ThemeContext } from '../context/ThemeContext';
 import posterPlaceholder from '../assets/poster-placeholder.png';
 import './fullcard.css';
 
 export const FullCard = ({ item, type }) => {
+	// Theme Switcher
+	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	let darkClass = darkTheme ? ' dark' : '';
+	// FullCard
+	const [query, setQuery] = useState('');
+	const [results, setResults] = useState([]);
+	const [page, setPage] = useState('');
+	const [totalPages, setTotalPages] = useState('');
+
 	const { addItemToWatchlist, watchlist } = useContext(GlobalContext);
 	// const { addItemToWatched, watched } = useContext(GlobalContext);
 
@@ -12,7 +22,8 @@ export const FullCard = ({ item, type }) => {
 	const itemDisabled = storedItems ? true : false; // disables AddButton if item exist
 
 	let overview = item.overview;
-	if (overview.length > 495) { // limit character length for overview
+	if (overview.length > 495) {
+		// limit character length for overview
 		let truncated = overview.substring(0, 490);
 		overview = truncated + '...';
 	}

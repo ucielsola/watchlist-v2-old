@@ -12,21 +12,26 @@
 	font-family: var(--font-family);
 	font-size: 1.1rem;
 	text-align: center;
+	color: var(--light-txt);
 }
 
 .empty-page__add-btn {
-	background: var(--button-bg);
 	padding: 0.5rem;
-	border: 1px solid var(--dark-violet);
-	border-radius: 5px;
 	font-family: var(--font-family);
 	font-size: 1.1rem;
 	text-decoration: none;
-	color: var(--dark-violet);
-	filter: drop-shadow(4px 4px 3px rgba(60, 191, 149, 0.15));
+	color: var(--dark-txt);
+	border-radius: 5px;
+	background: var(--primary);
+	box-shadow: var(--box-shadow);
 }
 
 .empty-page__img {
 	margin-top: 2rem;
 	width: 500px;
+	border: 1px solid var(--dark-100);
+}
+/* Dark Theme */
+.empty-page__title.dark {
+	color: var(--dark-txt);
 }

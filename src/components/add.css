@@ -3,7 +3,6 @@
 .add__container {
 	min-height: 100vh;
 	padding: 6rem 2rem;
-	background-color: var(--light-violet);
 }
 
 .add__title {
@@ -27,11 +26,9 @@
 	padding: 0.5rem 0.5rem;
 	font-family: var(--font-family);
 	font-size: 1.2rem;
-	color: var(--white);
-	background-color: var(--dark-violet);
 	border-color: unset;
 	border-radius: 5px;
-	border: 0px solid var(--dark-violet);
+	border: 0px solid lightblue;
 }
 
 .add__results {
@@ -52,4 +49,18 @@
 
 .add__gif {
 	width: 100%;
+}
+
+/* DARK THEME */
+
+
+.add__container.dark {
+	background-color: var(--light-violet);
+}
+
+.input__wrapper.dark input {
+	color: var(--white);
+	background-color: var(--dark-violet);
+	border-color: unset;
+	border: 0px solid var(--dark-violet);
 }

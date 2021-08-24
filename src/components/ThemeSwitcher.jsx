@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+import './theme-switcher.css';
 
 export const ThemeSwitcher = () => {
+	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	let darkClass = darkTheme ? ' dark' : '';
+	let themeName = darkTheme ? 'Dark ' : 'Light ';
+	const label = (
+		<label htmlFor="switch" className={'switch__label' + darkClass}>
+			{themeName}Theme
+		</label>
+	);
+	console.log(darkTheme);
 	return (
-		<div className="switch__wrapper">
-			<label htmlFor="switch" className="switch__label">
-				Dark Mode
-			</label>
-			<input name="switch" className="switch__input" type="checkbox"></input>
+		<div className="switch__wrapper" onClick={() => setDarkTheme(!darkTheme)}>
+			<div className="label-wrapper">{!darkTheme && label}</div>
+			<input name="switch" className={'switch__input' + darkClass} type="checkbox"></input>
+			<div className="label-wrapper ">{darkTheme && label}</div>
 		</div>
 	);
 };
