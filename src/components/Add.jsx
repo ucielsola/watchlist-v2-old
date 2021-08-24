@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 import axios from 'axios';
 import { FullCard } from './FullCard';
 import SearchGif from '../assets/search.webp';
 import './add.css';
 
 export const Add = () => {
+	// Theme Switcher
+	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	let darkClass = darkTheme ? ' dark' : '';
+	// Add
 	const [query, setQuery] = useState('');
 	const [results, setResults] = useState([]);
 
@@ -32,9 +37,9 @@ export const Add = () => {
 	};
 
 	return (
-		<div className="add__container">
-			<h2 className="add__title">Add Movies and TV Shows</h2>
-			<div className="input__wrapper">
+		<div className={'add__container' + darkClass}>
+			<h2 className={'add__title' + darkClass}>Add Movies and TV Shows</h2>
+			<div className={'input__wrapper' + darkClass}>
 				<input
 					type="text"
 					placeholder="Search for a Movie or TV Show"
@@ -46,15 +51,15 @@ export const Add = () => {
 
 			{results.length > 0 ? (
 				<React.Fragment>
-					<ul className="add__results">
+					<ul className={'add__results' + darkClass}>
 						{results.map((item) => (
 							<FullCard item={item} key={item.id} />
 						))}
 					</ul>
 				</React.Fragment>
 			) : (
-				<div className="add__gif-container">
-					<img src={SearchGif} alt="Sarch GIF from Giphy.com" className="add__gif" />
+				<div className={'add__gif-container' + darkClass}>
+					<img src={SearchGif} alt="Sarch GIF from Giphy.com" className={'add__gif' + darkClass} />
 				</div>
 			)}
 		</div>

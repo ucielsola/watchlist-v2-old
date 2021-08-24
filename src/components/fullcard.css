@@ -6,10 +6,9 @@
 	height: 315px;
 	width: 632.5px;
 	padding: 0.5rem;
-	border: 1px solid var(--dark-violet);
 	border-radius: 5px;
-	background: var(--dark-violet);
-	filter: var(--shadow);
+	background: var(--fullcard-light-bg);
+	box-shadow: var(--box-shadow);
 }
 
 .fullcard__poster-wrapper {
@@ -22,24 +21,26 @@
 	padding-left: 0.5rem;
 }
 
+.fullcard__title,
+.fullcard__date,
+.fullcard__overview {
+	font-family: var(--font-family);
+
+	color: var(--light-txt);
+}
+
 .fullcard__title {
 	font-size: 1.5rem;
-	font-family: var(--font-family);
-	color: var(--white);
 }
 
 .fullcard__date {
 	font-size: 0.9rem;
-	font-family: var(--font-family);
 	font-style: italic;
-	color: var(--white);
 }
 
 .fullcard__overview {
 	padding-top: 0.7rem;
 	font-size: 1rem;
-	font-family: var(--font-family);
-	color: var(--white);
 }
 
 .fullcard__controls {
@@ -49,14 +50,45 @@
 }
 
 .fullcard__button {
-	background: var(--button-bg);
+	background: var(--primary);
 	padding: 0.5rem;
-	border: 1px solid var(--dark-violet);
 	border-radius: 5px;
 	font-family: var(--font-family);
 	font-size: 1.1rem;
 	text-decoration: none;
-	color: var(--dark-violet);
-	filter: drop-shadow(4px 4px 3px rgba(60, 191, 149, 0.15));
+	color: var(--dark-txt);
+	box-shadow: var(--box-shadow);
 	cursor: pointer;
+}
+
+.fullcard__button:disabled {
+	cursor: default;
+	pointer-events: none;
+	background-color: var(--btn-disabled);
+}
+
+/* Dark Theme */
+
+.fullcard__item.dark {
+	display: flex;
+	flex-direction: row;
+	height: 315px;
+	width: 632.5px;
+	padding: 0.5rem;
+	border-radius: 5px;
+	background: var(--fullcard-dark-bg);
+	box-shadow: var(--box-shadow);
+}
+
+.fullcard__title.dark,
+.fullcard__date.dark,
+.fullcard__overview.dark,
+.fullcard__button.dark {
+	color: var(--dark-txt);
+}
+
+.fullcard__button.dark {
+	border: 1px solid var(--dark-100);
+	background: var(--primary);
+	box-shadow: var(--box-shadow);
 }

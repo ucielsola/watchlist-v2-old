@@ -3,16 +3,21 @@
 .add__container {
 	min-height: 100vh;
 	padding: 6rem 2rem;
+	background-color: var(--light-100);
+}
+
+.add__title,
+.add__subtitle {
+	font-family: var(--font-family);
+	color: var(--light-txt);
 }
 
 .add__title {
 	margin-top: 0;
-	font-family: var(--font-family);
 	font-size: 2.2rem;
 }
 .add__subtitle {
 	font-size: 1.1rem;
-	font-family: var(--font-family);
 }
 
 .input__wrapper {
@@ -26,9 +31,17 @@
 	padding: 0.5rem 0.5rem;
 	font-family: var(--font-family);
 	font-size: 1.2rem;
-	border-color: unset;
+	color: var(--dark-txt);
 	border-radius: 5px;
-	border: 0px solid lightblue;
+	border: 2px solid var(--primary);
+	background-color: var(--dark-300);
+}
+
+.input__wrapper input:focus-visible {
+	outline: none;
+}
+.input__wrapper input::placeholder {
+	color: var(--dark-txt);
 }
 
 .add__results {
@@ -53,14 +66,14 @@
 
 /* DARK THEME */
 
-
 .add__container.dark {
-	background-color: var(--light-violet);
+	background-color: var(--dark-200);
 }
 
+.add__title.dark,
+.add__subtitle.dark {
+	color: var(--dark-txt);
+}
 .input__wrapper.dark input {
-	color: var(--white);
-	background-color: var(--dark-violet);
-	border-color: unset;
-	border: 0px solid var(--dark-violet);
+	background-color: var(--dark-100);
 }

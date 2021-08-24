@@ -19,6 +19,10 @@
 	--light-100: #fffffff2;
 	--light-txt: #333333;
 	--primary: #008761;
+	--fullcard-dark-bg: #27424e;
+	--fullcard-light-bg: #d4d8db;
+	--btn-disabled: grey;
+
 
 	/* Font */
 	--font-family: 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif;
