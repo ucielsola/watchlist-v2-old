@@ -21,19 +21,21 @@ export const GlobalProvider = (props) => {
 	}, [state]);
 
 	// actions
-	const addItemToWatchlist = (item) => {
-		dispatch({ type: 'ADD_ITEM_TO_WATCHLIST', payload: item });
+	const addToWatchlist = (item) => {
+		dispatch({ type: 'ADD_TO_WATCHLIST', payload: item });
 	};
-	const addItemToWatched = (item) => {
-		dispatch({ type: 'ADD_ITEM_TO_WATCHED', payload: item });
+	const removeFromWatchlist = (id) => {
+		dispatch({ type: 'REMOVE_FROM_WATCHLIST', payload: id });
 	};
 
-	const removeItemFromWatchlist = (id) => {
-		dispatch({ type: 'REMOVE_ITEM_FROM_WATCHLIST', payload: id });
-		console.log('probando' + id);
+	const moveToWatchlist = (item) => {
+		dispatch({ type: 'MOVE_TO_WATCHLIST', payload: item });
 	};
-	const removeItemFromWatched = (id) => {
-		dispatch({ type: 'REMOVE_ITEM_FROM_WATCHed', payload: id });
+	const moveToWatched = (item) => {
+		dispatch({ type: 'MOVE_TO_WATCHED', payload: item });
+	};
+	const removeFromWatched = (id) => {
+		dispatch({ type: 'REMOVE_FROM_WATCHED', payload: id });
 	};
 
 	return (
@@ -41,10 +43,11 @@ export const GlobalProvider = (props) => {
 			value={{
 				watchlist: state.watchlist,
 				watched: state.watched,
-				addItemToWatchlist,
-				addItemToWatched,
-				removeItemFromWatchlist,
-				removeItemFromWatched,
+				addToWatchlist,
+				removeFromWatchlist,
+				moveToWatchlist,
+				moveToWatched,
+				removeFromWatched,
 			}}
 		>
 			{props.children}

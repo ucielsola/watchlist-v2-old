@@ -14,8 +14,7 @@ export const FullCard = ({ item, type }) => {
 	// const [page, setPage] = useState('');
 	// const [totalPages, setTotalPages] = useState('');
 
-	const { addItemToWatchlist, watchlist } = useContext(GlobalContext);
-	// const { addItemToWatched, watched } = useContext(GlobalContext);
+	const { addToWatchlist, watchlist } = useContext(GlobalContext);
 
 	let storedItems = watchlist.find((obj) => obj.id === item.id);
 
@@ -62,14 +61,11 @@ export const FullCard = ({ item, type }) => {
 				<div className={'fullcard__controls' + darkClass}>
 					<button
 						className={'fullcard__button' + darkClass}
-						onClick={() => addItemToWatchlist(item)}
+						onClick={() => addToWatchlist(item)}
 						disabled={itemDisabled}
 					>
 						Add to Watch List
 					</button>
-					{/* <button className="fullcard__button" onClick={() => addItemToWatched(item)} disabled={itemDisabled}>
-					Add to Watched
-				</button> */}
 				</div>
 			</div>
 		</li>
