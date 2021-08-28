@@ -14,18 +14,25 @@ export const Watchlist = () => {
 	return (
 		<div className={'watchlist__container' + darkClass}>
 			<h2 className={'watchlist__title' + darkClass}>Your Watch List</h2>
-			<h3 className={'watchlist__subtitle' + darkClass}>
-				Here you'll find all the Movies and TV Shows you want to watch!
-			</h3>
 
 			{watchlist.length > 0 ? (
-				<div className={'poster-card__container' + darkClass}>
-					{watchlist.map((item) => (
-						<PosterCard item={item} type="watchlist" key={item.id} />
-					))}
-				</div>
+				<React.Fragment>
+					<h3 className={'watchlist__subtitle' + darkClass}>
+						{watchlist.length === 1 ? '1 Movie / TVShow' : watchlist.length + ' Movies / TVShows'}
+					</h3>
+					<div className={'poster-card__container' + darkClass}>
+						{watchlist.map((item) => (
+							<PosterCard item={item} type="watchlist" key={item.id} />
+						))}
+					</div>
+				</React.Fragment>
 			) : (
-				<EmptyPage />
+				<React.Fragment>
+					<h3 className={'watchlist__subtitle' + darkClass}>
+						Here you'll find all the Movies and TV Shows you want to watch!
+					</h3>
+					<EmptyPage />
+				</React.Fragment>
 			)}
 		</div>
 	);

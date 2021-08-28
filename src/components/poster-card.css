@@ -63,11 +63,13 @@
 }
 
 .fa-times,
-.fa-eye {
+.fa-eye,
+.fa-eye-slash {
 	color: var(--dark-txt);
 }
 
-.poster-card__ctrl-btn.eye {
+.poster-card__ctrl-btn.eye,
+.poster-card__ctrl-btn.eye-slash {
 	background-color: var(--primary);
 }
 .poster-card__ctrl-btn.times {

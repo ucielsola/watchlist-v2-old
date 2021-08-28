@@ -14,11 +14,13 @@ export const FullCard = ({ item, type }) => {
 	// const [page, setPage] = useState('');
 	// const [totalPages, setTotalPages] = useState('');
 
-	const { addToWatchlist, watchlist } = useContext(GlobalContext);
+	const { watchlist, watched, addToWatchlist, moveToWatched } = useContext(GlobalContext);
 
-	let storedItems = watchlist.find((obj) => obj.id === item.id);
+	let isInWatchlist = watchlist.find((obj) => obj.id === item.id);
+	let isInWatched = watched.find((obj) => obj.id === item.id);
 
-	const itemDisabled = storedItems ? true : false; // disables AddButton if item exist
+	const watchlistBtnDisabled = isInWatchlist ? true : isInWatched ? true : false; // disables AddButton if item exist
+	const watchedBtnDisabled = isInWatched ? true : false; // disables AddButton if item exist
 
 	let overview = item.overview;
 	if (overview.length > 400) {
@@ -62,9 +64,16 @@ export const FullCard = ({ item, type }) => {
 					<button
 						className={'fullcard__button' + darkClass}
 						onClick={() => addToWatchlist(item)}
-						disabled={itemDisabled}
+						disabled={watchlistBtnDisabled}
 					>
 						Add to Watch List
+					</button>
+					<button
+						className={'fullcard__button' + darkClass}
+						onClick={() => moveToWatched(item)}
+						disabled={watchedBtnDisabled}
+					>
+						Add to Watched
 					</button>
 				</div>
 			</div>

@@ -27,7 +27,6 @@ export const GlobalProvider = (props) => {
 	const removeFromWatchlist = (id) => {
 		dispatch({ type: 'REMOVE_FROM_WATCHLIST', payload: id });
 	};
-
 	const moveToWatchlist = (item) => {
 		dispatch({ type: 'MOVE_TO_WATCHLIST', payload: item });
 	};
