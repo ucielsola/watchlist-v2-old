@@ -1,28 +1,39 @@
-import React from 'react';
-// import React, { useContext } from 'react';
-// import { GlobalContext } from '../context/GlobalState';
-// import { ItemCard } from './ItemCard';
-// import { EmptyList } from './EmptyList';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
+import { ThemeContext } from '../context/ThemeContext';
+import { PosterCard } from './PosterCard';
+import { EmptyPage } from './EmptyPage';
 import './watchlist.css';
 
 export const Watchlist = () => {
-	// const { watchlist } = useContext(GlobalContext);
+	// Theme Switcher
+	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	let darkClass = darkTheme ? ' dark' : '';
+	// Watchlists
+	const { watchlist } = useContext(GlobalContext);
 	return (
-		<div className="watchlist__container">
-			<h2 className="watchlist__title">Your Watch List</h2>
-			<h3 className="watchlist__subtitle">
-				Here, you will find all the Movies and TV Shows you want to watch!
-			</h3>
+		<div className={'watchlist__container' + darkClass}>
+			<h2 className={'watchlist__title' + darkClass}>Your Watch List</h2>
 
-			{/* {watchlist.length > 0 ? (
-				<div className="item-grid__container">
-					{watchlist.map((item) => (
-						<ItemCard item={item} type="watchlist" />
-                    ))}
-				</div>
+			{watchlist.length > 0 ? (
+				<React.Fragment>
+					<h3 className={'watchlist__subtitle' + darkClass}>
+						{watchlist.length === 1 ? '1 Movie / TVShow' : watchlist.length + ' Movies / TVShows'}
+					</h3>
+					<div className={'poster-card__container' + darkClass}>
+						{watchlist.map((item) => (
+							<PosterCard item={item} type="watchlist" key={item.id} />
+						))}
+					</div>
+				</React.Fragment>
 			) : (
-				<EmptyList />
-			)} */}
+				<React.Fragment>
+					<h3 className={'watchlist__subtitle' + darkClass}>
+						Here you'll find all the Movies and TV Shows you want to watch!
+					</h3>
+					<EmptyPage />
+				</React.Fragment>
+			)}
 		</div>
 	);
 };

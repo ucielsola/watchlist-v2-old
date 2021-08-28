@@ -3,17 +3,22 @@
 .add__container {
 	min-height: 100vh;
 	padding: 6rem 2rem;
-	background-color: var(--light-violet);
+	overflow: hidden;
+	background-color: var(--light-100);
+}
+
+.add__title,
+.add__subtitle {
+	font-family: var(--font-family);
+	color: var(--light-txt);
 }
 
 .add__title {
 	margin-top: 0;
-	font-family: var(--font-family);
 	font-size: 2.2rem;
 }
 .add__subtitle {
 	font-size: 1.1rem;
-	font-family: var(--font-family);
 }
 
 .input__wrapper {
@@ -27,11 +32,17 @@
 	padding: 0.5rem 0.5rem;
 	font-family: var(--font-family);
 	font-size: 1.2rem;
-	color: var(--white);
-	background-color: var(--dark-violet);
-	border-color: unset;
-	border-radius: 5px;
-	border: 0px solid var(--dark-violet);
+	color: var(--dark-txt);
+	border-radius: var(--radius);
+	border: 2px solid var(--primary);
+	background-color: var(--dark-300);
+}
+
+.input__wrapper input:focus-visible {
+	outline: none;
+}
+.input__wrapper input::placeholder {
+	color: var(--dark-txt);
 }
 
 .add__results {
@@ -41,4 +52,29 @@
 	place-items: center;
 	padding-top: 2rem;
 	list-style: none;
+}
+
+.add__gif-container {
+	display: grid;
+	place-items: center;
+	width: 60%;
+	margin: 2rem auto;
+}
+
+.add__gif {
+	width: 100%;
+}
+
+/* DARK THEME */
+
+.add__container.dark {
+	background-color: var(--dark-200);
+}
+
+.add__title.dark,
+.add__subtitle.dark {
+	color: var(--dark-txt);
+}
+.input__wrapper.dark input {
+	background-color: var(--dark-100);
 }
