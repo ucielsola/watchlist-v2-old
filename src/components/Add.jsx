@@ -18,6 +18,7 @@ export const Add = () => {
 	const nextDisabled = page - 1 === totalPages;
 	const prevDisabled = page === 2;
 	const PaginationRequest = (page) => {
+		window.scrollTo({ top: 3, behavior: 'smooth' });
 		axios
 			.get(
 				`https://api.themoviedb.org/3/search/multi?api_key=b8723cef7967276c30d0623e7338bcc4&language=en-US&page=1&include_adult=false&query=${query}&page=${page}`
