@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './scroll-to-top.css';
 
 export const ScrollToTop = () => {
-	const [isVisible, setIsVisible] = useState(false);
+	const [isVisible, setIsVisible] = useState(' ');
 
 	// Show button when page is scrolled up to given distance
 	const toggleVisibility = () => {
-		if (window.pageYOffset > 300) {
+		if (window.pageYOffset > 500) {
 			setIsVisible(' show');
 		} else {
-			setIsVisible('');
+			setIsVisible(' ');
 		}
 	};
 
