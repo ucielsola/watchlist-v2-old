@@ -81,6 +81,42 @@
 	background-color: var(--dark-100);
 }
 
+.add__pagination-controls {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 2rem 0 1rem 0;
+}
+
+.add__pagination-button {
+	background: var(--primary);
+	padding: 0.5rem;
+	font-family: var(--font-family);
+	font-size: 1.1rem;
+	text-decoration: none;
+	color: var(--dark-txt);
+	margin-inline: 1rem;
+	border-radius: var(--radius);
+	border-color: transparent;
+	box-shadow: var(--box-shadow);
+	cursor: pointer;
+}
+.add__pagination-button:disabled,
+.add__pagination-button.dark:disabled {
+	cursor: default;
+	pointer-events: none;
+	background-color: var(--btn-disabled);
+}
+
+.add__page-counter,
+.add__error-msg {
+	font-family: var(--font-family);
+	color: var(--light-txt);
+	text-align: center;
+	font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 42rem) {
 	.add__results {
 		grid-template-columns: 1fr;
