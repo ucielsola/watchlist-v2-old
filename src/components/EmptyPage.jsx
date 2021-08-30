@@ -12,11 +12,11 @@ export const EmptyPage = () => {
 	return (
 		<div className={'empty-page__container' + darkClass}>
 			<h3 className={'empty-page__title' + darkClass}>
-				Wow!
+				Wow!{' '}
 				<span role="img" aria-label="crying emoji">
 					😢
-				</span>
-				Such emptiness... Lets find something to watch!{' '}
+				</span>{' '}
+				...Such emptiness... Lets find something to watch!{' '}
 				<span className="btn">
 					<Link to="/add" className={'empty-page__add-btn' + darkClass}>
 						+ Add
