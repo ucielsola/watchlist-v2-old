@@ -23,9 +23,9 @@ export const FullCard = ({ item, type }) => {
 	const watchedBtnDisabled = isInWatched ? true : false; // disables AddButton if item exist
 
 	let overview = item.overview;
-	if (overview.length > 400) {
+	if (overview.length > 375) {
 		// limit character length for overview
-		let truncated = overview.substring(0, 401);
+		let truncated = overview.substring(0, 375);
 		overview = truncated + '...';
 	}
 

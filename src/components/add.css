@@ -48,9 +48,11 @@
 .add__results {
 	display: grid;
 	grid-gap: 20px;
-	grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
 	place-items: center;
+	max-width: 81rem;
 	padding-top: 2rem;
+	margin: 0 auto;
 	list-style: none;
 }
 
@@ -77,4 +79,10 @@
 }
 .input__wrapper.dark input {
 	background-color: var(--dark-100);
+}
+
+@media only screen and (max-width: 42rem) {
+	.add__results {
+		grid-template-columns: 1fr;
+	}
 }

@@ -40,13 +40,7 @@ export const Add = () => {
 		<div className={'add__container' + darkClass}>
 			<h2 className={'add__title' + darkClass}>Add Movies and TV Shows</h2>
 			<div className={'input__wrapper' + darkClass}>
-				<input
-					type="text"
-					placeholder="Search..."
-					value={query}
-					onChange={Search}
-					// if (e.target.value.length >= 3)
-				/>
+				<input type="text" placeholder="Search..." value={query} onChange={Search} autoFocus={true} />
 			</div>
 
 			{results.length > 0 ? (

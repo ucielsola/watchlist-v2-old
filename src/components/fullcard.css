@@ -3,8 +3,8 @@
 .fullcard__item {
 	display: flex;
 	flex-direction: row;
-	height: 315px;
-	width: 632.5px;
+	max-height: 19.68rem;
+	max-width: 39.53rem;
 	padding: 0.5rem;
 	border-radius: var(--radius);
 	background: var(--fullcard-light-bg);
@@ -60,6 +60,7 @@
 	font-size: 1.1rem;
 	text-decoration: none;
 	color: var(--dark-txt);
+	margin-inline: 1rem;
 	border-radius: var(--radius);
 	border-color: transparent;
 	box-shadow: var(--box-shadow);
@@ -97,4 +98,26 @@
 	border-color: transparent;
 	background: var(--primary);
 	box-shadow: var(--box-shadow);
+}
+
+@media only screen and (max-width: 42rem) {
+	.fullcard__item {
+		flex-direction: column;
+		max-height: unset;
+	}
+	.fullcard__controls {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-block: 1rem;
+	}
+}
+
+@media only screen and (max-width: 29rem) {
+	.fullcard__button {
+		padding: 0.3rem;
+		font-family: var(--font-family);
+		font-size: 0.9rem;
+	}
 }
