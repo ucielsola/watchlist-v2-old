@@ -14,7 +14,12 @@ export const ThemeSwitcher = () => {
 	return (
 		<div className="switch__wrapper" onClick={() => setDarkTheme(!darkTheme)}>
 			<div className="label-wrapper">{!darkTheme && label}</div>
-			<input name="switch" className={'switch__input' + darkClass} type="checkbox"></input>
+			<input
+				name="switch"
+				className={'switch__input' + darkClass}
+				type="checkbox"
+				defaultChecked={darkTheme}
+			></input>
 			<div className="label-wrapper ">{darkTheme && label}</div>
 		</div>
 	);

@@ -15,6 +15,7 @@
 	--dark-100: #082032;
 	--dark-200: #2c394b;
 	--dark-300: #334756;
+	--dark-400: #3d4550;
 	--dark-txt: #e4e4e4;
 	--light-100: #fffffff2;
 	--light-txt: #333333;
@@ -22,6 +23,8 @@
 	--fullcard-dark-bg: #27424e;
 	--fullcard-light-bg: #d4d8db;
 	--btn-disabled: grey;
+	--error-bg: #bd8791;
+	--msg-bg: #008761;
 
 	/* Font */
 	--font-family: 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif;

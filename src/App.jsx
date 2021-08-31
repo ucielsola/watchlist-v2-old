@@ -1,41 +1,41 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { GlobalProvider } from './context/GlobalState';
+import { AuthProvider } from './context/AuthContext';
+import { SignUp } from './components/SignUp';
+import { LogIn } from './components/LogIn';
+import { ForgotPassword } from './components/ForgotPassword';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeContext } from './context/ThemeContext';
 import { Header } from './components/Header';
 import { Watchlist } from './components/Watchlist';
 import { Watched } from './components/Watched';
-import { ScrollToTop } from './components/ScrollToTop';
 import { Add } from './components/Add';
+import { ProfilePage } from './components/ProfilePage';
+import { PrivateRoute } from './components/PrivateRoute';
 import './App.css';
 
 function App() {
-	const [darkTheme, setDarkTheme] = useState(false);
+	const [darkTheme, setDarkTheme] = useState(true);
+
 	return (
-		<GlobalProvider>
-			<ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-				<Router>
-					<Header />
-
-					<main>
-						<ScrollToTop />
+		<Router>
+			<AuthProvider>
+				<GlobalProvider>
+					<ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
+						<Header />
 						<Switch>
-							<Route exact path="/">
-								<Watchlist />
-							</Route>
-
-							<Route path="/watched">
-								<Watched />
-							</Route>
-
-							<Route path="/add">
-								<Add />
-							</Route>
+							<Route path="/signup" component={SignUp} />
+							<Route path="/login" component={LogIn} />
+							<Route path="/forgot-password" component={ForgotPassword} />
+							<PrivateRoute exact path="/" component={Watchlist} />
+							<PrivateRoute path="/watched" component={Watched} />
+							<PrivateRoute path="/add" component={Add} />
+							<PrivateRoute path="/profile" component={ProfilePage} />
 						</Switch>
-					</main>
-				</Router>
-			</ThemeContext.Provider>
-		</GlobalProvider>
+					</ThemeContext.Provider>
+				</GlobalProvider>
+			</AuthProvider>
+		</Router>
 	);
 }
 

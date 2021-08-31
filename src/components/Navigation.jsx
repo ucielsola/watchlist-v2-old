@@ -6,7 +6,7 @@ import './navigation.css';
 
 function Navigation() {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	const { darkTheme } = useContext(ThemeContext);
 	let darkClass = darkTheme ? ' dark' : '';
 	// Navigation
 	const [showNav, toggleShowNav] = useState(false);
@@ -20,14 +20,23 @@ function Navigation() {
 			<nav className={'nav__container' + darkClass + openClass}>
 				<ul className={'nav__list' + darkClass}>
 					<li className={'nav__link' + darkClass} key={uuid_v4()} onClick={() => toggleShowNav(false)}>
-						<NavLink to="/">Watch List</NavLink>
+						<NavLink to="/" className={'nav__btn' + darkClass}>
+							Watch List
+						</NavLink>
 					</li>
 					<li className={'nav__link' + darkClass} key={uuid_v4()} onClick={() => toggleShowNav(false)}>
-						<NavLink to="/watched">Watched</NavLink>
+						<NavLink to="/watched" className={'nav__btn' + darkClass}>
+							Watched
+						</NavLink>
 					</li>
 					<li className={'nav__link' + darkClass} key={uuid_v4()} onClick={() => toggleShowNav(false)}>
 						<Link to="/add" className={'nav__btn' + darkClass}>
 							+ Add
+						</Link>
+					</li>
+					<li className={'nav__link' + darkClass} key={uuid_v4()} onClick={() => toggleShowNav(false)}>
+						<Link to="/profile" className={'nav__btn' + darkClass}>
+							<i className="fas fa-user"></i> Profile
 						</Link>
 					</li>
 				</ul>

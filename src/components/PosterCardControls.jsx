@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
 export const PosterCardControls = ({ item, type }) => {
-	const { moveToWatchlist, removeFromWatchlist, addToWatched, moveToWatched, removeFromWatched } =
+	const { moveToWatchlist, removeFromWatchlist, moveToWatched, removeFromWatched } =
 		useContext(GlobalContext);
 
 	return (

@@ -2,12 +2,15 @@ import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import axios from 'axios';
 import { FullCard } from './FullCard';
+import { ScrollToTop } from './ScrollToTop';
 import SearchGif from '../assets/search.webp';
+
 import './add.css';
 
 export const Add = () => {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	const { darkTheme } = useContext(ThemeContext);
+
 	let darkClass = darkTheme ? ' dark' : '';
 	// Add
 	const [query, setQuery] = useState('');
@@ -21,7 +24,7 @@ export const Add = () => {
 		window.scrollTo({ top: 3, behavior: 'smooth' });
 		axios
 			.get(
-				`https://api.themoviedb.org/3/search/multi?api_key=b8723cef7967276c30d0623e7338bcc4&language=en-US&page=1&include_adult=false&query=${query}&page=${page}`
+				`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${query}&page=${page}`
 			)
 			.then((res) => {
 				const results = res.data.results.filter((item) => {
@@ -46,7 +49,7 @@ export const Add = () => {
 
 		axios
 			.get(
-				`https://api.themoviedb.org/3/search/multi?api_key=b8723cef7967276c30d0623e7338bcc4&language=en-US&page=1&include_adult=false&query=${e.target.value}&page=1`
+				`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}&page=1`
 			)
 			.then((res) => {
 				const results = res.data.results.filter((item) => {
@@ -75,44 +78,56 @@ export const Add = () => {
 	};
 
 	return (
-		<div className={'add__container' + darkClass}>
-			<h2 className={'add__title' + darkClass}>Add Movies and TV Shows</h2>
-			<div className={'input__wrapper' + darkClass}>
-				<input type="text" placeholder="Search..." value={query} onChange={Search} autoFocus={true} />
-			</div>
+		<React.Fragment>
+			<ScrollToTop />
 
-			{results.length > 0 ? (
-				<React.Fragment>
-					<ul className={'add__results' + darkClass}>
-						{results.map((item) => (
-							<FullCard item={item} key={item.id} />
-						))}
-					</ul>
-					{totalPages > 1 && (
-						<React.Fragment>
-							<div className="add__pagination-controls">
-								<button className="add__pagination-button" onClick={prevPage} disabled={prevDisabled}>
-									Previous
-								</button>
+			<div className={'add__container' + darkClass}>
+				<h2 className={'add__title' + darkClass}>Add Movies and TV Shows</h2>
+				<div className={'input__wrapper' + darkClass}>
+					<input type="text" placeholder="Search..." value={query} onChange={Search} autoFocus={true} />
+				</div>
 
-								<button className="add__pagination-button" onClick={nextPage} disabled={nextDisabled}>
-									Next
-								</button>
-							</div>
-							<h4 className="add__page-counter">
-								Page {page - 1} of {totalPages} pages
+				{results.length > 0 ? (
+					<React.Fragment>
+						<ul className={'add__results' + darkClass}>
+							{results.map((item) => (
+								<FullCard item={item} key={item.id} />
+							))}
+						</ul>
+						{totalPages > 1 && (
+							<React.Fragment>
+								<div className="add__pagination-controls">
+									<button className="add__pagination-button" onClick={prevPage} disabled={prevDisabled}>
+										Previous
+									</button>
+
+									<button className="add__pagination-button" onClick={nextPage} disabled={nextDisabled}>
+										Next
+									</button>
+								</div>
+								<h4 className="add__page-counter">
+									Page {page - 1} of {totalPages} pages
+								</h4>
+							</React.Fragment>
+						)}
+					</React.Fragment>
+				) : (
+					<React.Fragment>
+						{error && (
+							<h4 className="add__error-msg">
+								Mhh... nothing found{' '}
+								<span role="img" aria-label="Fearful Face Emoji">
+									😨
+								</span>{' '}
+								! Try something else...
 							</h4>
-						</React.Fragment>
-					)}
-				</React.Fragment>
-			) : (
-				<React.Fragment>
-					{error && <h4 className="add__error-msg">Mhh... nothing found 😨! Try something else...</h4>}
-					<div className={'add__gif-container' + darkClass}>
-						<img src={SearchGif} alt="Sarch GIF from Giphy.com" className={'add__gif' + darkClass} />
-					</div>
-				</React.Fragment>
-			)}
-		</div>
+						)}
+						<div className={'add__gif-container' + darkClass}>
+							<img src={SearchGif} alt="Sarch GIF from Giphy.com" className={'add__gif' + darkClass} />
+						</div>
+					</React.Fragment>
+				)}
+			</div>
+		</React.Fragment>
 	);
 };
