@@ -13,7 +13,7 @@ With WachList you will create a list of Movies and TV Shows you want to watch, o
 
 ## Dependencies
 
-        "axios": "^0.21.1",
+      		"axios": "^0.21.1",
 		"firebase": "^9.0.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
