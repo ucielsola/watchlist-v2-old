@@ -1,5 +1,6 @@
 {
-	"name": "watchlist-v2",
+	"homepage": "https://ucielsola.github.io/watchlist",
+	"name": "watchlist",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -16,6 +17,8 @@
 		"web-vitals": "^1.1.2"
 	},
 	"scripts": {
+		"predeploy":"npm run build",
+		"deploy":"gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "babel src -d lib",
 		"test": "react-scripts test",
@@ -42,6 +45,7 @@
 	"devDependencies": {
 		"@babel/cli": "^7.14.8",
 		"@babel/core": "^7.15.0",
+		"gh-pages": "^3.2.3",
 		"prettier": "^2.3.2"
 	}
 }
