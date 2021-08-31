@@ -109,6 +109,7 @@
 
 /* Dark Theme */
 
-.nav__link.dark a {
+.nav__link.dark a,
+.nav__toggle {
 	color: var(--dark-txt);
 }
