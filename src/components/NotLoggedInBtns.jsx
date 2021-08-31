@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./not-logged-in.css"
 
 export const NotLoggedInBtns = () => {
 	return (
@@ -13,4 +14,3 @@ export const NotLoggedInBtns = () => {
 		</div>
 	);
 };
-

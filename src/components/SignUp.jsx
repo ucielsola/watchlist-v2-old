@@ -36,35 +36,49 @@ export const SignUp = () => {
 	}
 
 	return (
-		<div className={'sign-up__container' + darkClass}>
-			<h2 className={'sign-up__title' + darkClass}>Sign Up</h2>
-			{error && <h3 className={'sign-up__error-msg' + darkClass}>{error}</h3>}
-			<form action="" onSubmit={handleSubmit}>
-				<div className={'form-group' + darkClass}>
-					<label htmlFor="email" className={'form__email' + darkClass}></label>
-					<input type="email" name="password" ref={emailRef} className={'form__input' + darkClass} />
+		<div className={'signup__container' + darkClass}>
+			<div className={'signup__wrapper' + darkClass}>
+				<h2 className={'signup__title' + darkClass}>Sign Up</h2>
+				{error && <h3 className={'signup__error-msg' + darkClass}>{error}</h3>}
+				<form action="" onSubmit={handleSubmit}>
+					<div className={'form__group' + darkClass}>
+						<input type="email" name="password" ref={emailRef} className={'form__input' + darkClass} />
+						<label htmlFor="email" className={'form__label' + darkClass}>
+							Email
+						</label>
+					</div>
+					<div className={'form__group' + darkClass}>
+						<input
+							type="password"
+							name="password"
+							ref={passwordRef}
+							className={'form__input' + darkClass}
+							minLength="6"
+						/>
+						<label htmlFor="password" className={'form__label' + darkClass}>
+							Password
+						</label>
+					</div>
+					<div className={'form__group' + darkClass}>
+						<input
+							type="password"
+							name="password-confirm"
+							ref={passwordConfirmRef}
+							className={'form__input' + darkClass}
+						/>
+						<label htmlFor="password-confirm" className={'form__label' + darkClass} minLength="6">
+							Confirm Password
+						</label>
+					</div>
+					<div className={'form__group' + darkClass}>
+						<button disabled={loading} type="submit" className={'form__submit' + darkClass}>
+							Sign Up
+						</button>
+					</div>
+				</form>
+				<div className={'to-login' + darkClass}>
+					Already have an account? <Link to="/login">Log In!</Link>
 				</div>
-				<div className={'form-group' + darkClass}>
-					<label htmlFor="password" className={'form__pass' + darkClass}></label>
-					<input type="password" name="password" ref={passwordRef} className={'form__input' + darkClass} />
-				</div>
-				<div className={'form-group' + darkClass}>
-					<label htmlFor="password-confirm" className={'form__pass' + darkClass}></label>
-					<input
-						type="password"
-						name="password-confirm"
-						ref={passwordConfirmRef}
-						className={'form__input' + darkClass}
-					/>
-				</div>
-				<div className={'form-group' + darkClass}>
-					<button disabled={loading} type="submit" className={'form__submit' + darkClass}>
-						Sign Up
-					</button>
-				</div>
-			</form>
-			<div className={'to-login' + darkClass}>
-				Already have an account? <Link to="/login">Log In!</Link>
 			</div>
 		</div>
 	);

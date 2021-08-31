@@ -33,25 +33,37 @@ export const LogIn = () => {
 
 	return (
 		<div className={'login__container' + darkClass}>
-			<h2 className={'login__title' + darkClass}>Log In</h2>
-			{error && <h3 className={'login__error-msg' + darkClass}>{error}</h3>}
-			<form action="" onSubmit={handleSubmit}>
-				<div className={'form-group' + darkClass}>
-					<label htmlFor="email" className={'form__email' + darkClass}></label>
-					<input type="email" name="password" ref={emailRef} className={'form__input' + darkClass} />
+			<div className={'login__wrapper' + darkClass}>
+				<h2 className={'login__title' + darkClass}>Log In</h2>
+				{error && <h3 className={'login__error-msg' + darkClass}>{error}</h3>}
+				<form action="" onSubmit={handleSubmit}>
+					<div className={'form__group' + darkClass}>
+						<input type="email" name="password" ref={emailRef} className={'form__input' + darkClass} />
+						<label htmlFor="email" className={'form__label' + darkClass}>
+							Email
+						</label>
+					</div>
+					<div className={'form__group' + darkClass}>
+						<input
+							type="password"
+							name="password"
+							ref={passwordRef}
+							className={'form__input' + darkClass}
+							minLength="6"
+						/>
+						<label htmlFor="password" className={'form__label' + darkClass}>
+							Password
+						</label>
+					</div>
+					<div className={'form__group' + darkClass}>
+						<button disabled={loading} type="submit" className={'form__submit' + darkClass}>
+							Log In
+						</button>
+					</div>
+				</form>
+				<div className={'to-signup' + darkClass}>
+					New in town? <Link to="/signup">Sign Up!</Link>{' '}
 				</div>
-				<div className={'form-group' + darkClass}>
-					<label htmlFor="password" className={'form__pass' + darkClass}></label>
-					<input type="password" name="password" ref={passwordRef} className={'form__input' + darkClass} />
-				</div>
-				<div className={'form-group' + darkClass}>
-					<button disabled={loading} type="submit" className={'form__submit' + darkClass}>
-						Log In
-					</button>
-				</div>
-			</form>
-			<div className={'to-sign-up' + darkClass}>
-				New in town? <Link to="/signup">Sign Up!</Link>{' '}
 			</div>
 		</div>
 	);
