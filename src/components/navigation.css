@@ -110,6 +110,6 @@
 /* Dark Theme */
 
 .nav__link.dark a,
-.nav__toggle {
+.nav__toggle.dark {
 	color: var(--dark-txt);
 }
