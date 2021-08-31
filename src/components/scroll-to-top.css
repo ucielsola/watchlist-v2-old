@@ -2,8 +2,8 @@
 
 .scroll-to-top__container {
 	position: fixed;
-	    bottom: 1.5rem;
-    right: 1.5rem;
+	bottom: 1.5rem;
+	right: 1.5rem;
 }
 
 .scroll-to-top__button {
@@ -22,7 +22,7 @@
 	width: 1.2rem;
 	color: var(--dark-txt);
 	border-radius: 100%;
-	border-color: transparent;
+	border: 0.1rem solid var(--dark-txt);
 	box-shadow: var(--box-shadow);
 }
 
