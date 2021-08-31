@@ -3,14 +3,20 @@ import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { ThemeContext } from '../context/ThemeContext';
+import { NotLoggedInBtns } from './NotLoggedInBtns';
+import { useAuth } from '../context/AuthContext';
+
 import logo from '../assets/logo512.png';
 import './header.css';
 
 export const Header = () => {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+		const { darkTheme } = useContext(ThemeContext);
+
 	let darkClass = darkTheme ? ' dark' : '';
 	// Header
+	const { currentUser } = useAuth();
+
 	return (
 		<header>
 			<div className={'header__container' + darkClass}>
@@ -26,7 +32,7 @@ export const Header = () => {
 					</Link>
 				</div>
 				<ThemeSwitcher />
-				<Navigation />
+				{currentUser ? <Navigation /> : <NotLoggedInBtns/>}
 			</div>
 		</header>
 	);

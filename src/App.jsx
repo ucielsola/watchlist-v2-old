@@ -19,7 +19,7 @@ function App() {
 			<AuthProvider>
 				<GlobalProvider>
 					<ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-						{/* <Header /> */}
+						<Header />
 						<Switch>
 							<Route path="/signup" component={SignUp} />
 							<Route path="/login" component={LogIn} />

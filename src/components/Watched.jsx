@@ -8,7 +8,8 @@ import './watched.css';
 
 export const Watched = () => {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+		const { darkTheme } = useContext(ThemeContext);
+
 	let darkClass = darkTheme ? ' dark' : '';
 	// watched
 	const { watched } = useContext(GlobalContext);

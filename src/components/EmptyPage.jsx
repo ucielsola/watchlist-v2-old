@@ -6,7 +6,8 @@ import './empty-page.css';
 
 export const EmptyPage = () => {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	const { darkTheme } = useContext(ThemeContext);
+
 	let darkClass = darkTheme ? ' dark' : '';
 	// watched
 	return (

@@ -9,7 +9,8 @@ import './watchlist.css';
 
 export const Watchlist = () => {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	const { darkTheme } = useContext(ThemeContext);
+
 	let darkClass = darkTheme ? ' dark' : '';
 	// Watchlists
 	const { watchlist } = useContext(GlobalContext);

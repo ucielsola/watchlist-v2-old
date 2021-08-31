@@ -9,7 +9,8 @@ import './add.css';
 
 export const Add = () => {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	const { darkTheme } = useContext(ThemeContext);
+
 	let darkClass = darkTheme ? ' dark' : '';
 	// Add
 	const [query, setQuery] = useState('');
@@ -112,13 +113,21 @@ export const Add = () => {
 					</React.Fragment>
 				) : (
 					<React.Fragment>
-						{error && <h4 className="add__error-msg">Mhh... nothing found 😨! Try something else...</h4>}
+						{error && (
+							<h4 className="add__error-msg">
+								Mhh... nothing found{' '}
+								<span role="img" aria-label="Fearful Face Emoji">
+									😨
+								</span>{' '}
+								! Try something else...
+							</h4>
+						)}
 						<div className={'add__gif-container' + darkClass}>
 							<img src={SearchGif} alt="Sarch GIF from Giphy.com" className={'add__gif' + darkClass} />
 						</div>
 					</React.Fragment>
 				)}
 			</div>
-			</React.Fragment>
+		</React.Fragment>
 	);
 };

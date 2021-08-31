@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { ThemeContext } from '../context/ThemeContext';
 import posterPlaceholder from '../assets/poster-placeholder.png';
@@ -6,14 +6,9 @@ import './fullcard.css';
 
 export const FullCard = ({ item, type }) => {
 	// Theme Switcher
-	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+	const { darkTheme } = useContext(ThemeContext);
 	let darkClass = darkTheme ? ' dark' : '';
 	// FullCard
-	// const [query, setQuery] = useState('');
-	// const [results, setResults] = useState([]);
-	// const [page, setPage] = useState('');
-	// const [totalPages, setTotalPages] = useState('');
-
 	const { watchlist, watched, addToWatchlist, moveToWatched } = useContext(GlobalContext);
 
 	let isInWatchlist = watchlist.find((obj) => obj.id === item.id);
