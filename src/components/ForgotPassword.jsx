@@ -2,40 +2,44 @@ import React, { useRef, useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ThemeContext } from '../context/ThemeContext';
-
 import './login-signup-forgot-profile.css';
 
-export const LogIn = () => {
+export const ForgotPassword = () => {
 	// Theme Switcher
 	const { darkTheme } = useContext(ThemeContext);
 	let darkClass = darkTheme ? ' dark' : '';
 	// Login
 	const emailRef = useRef();
-	const passwordRef = useRef();
-	const { login } = useAuth();
+	const { resetPassword } = useAuth();
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
+	const [message, setMessage] = useState('');
 	const history = useHistory();
+
 
 	async function handleSubmit(e) {
 		e.preventDefault();
 
 		try {
+			setMessage('');
 			setError('');
 			setLoading(true);
-			await login(emailRef.current.value, passwordRef.current.value);
-			history.push('/');
+			await resetPassword(emailRef.current.value);
+			setMessage('Check your inbox for further instructions');
+			setTimeout(() => {
+				history.push("/login");
+			}, 3000);
 		} catch (error) {
-			setError('Failed to log in');
+			setError('Failed to reset password');
 		}
 		setLoading(false);
 	}
-
 	return (
 		<div className={'page__container' + darkClass}>
 			<div className={'page__wrapper' + darkClass}>
-				<h2 className={'page__title' + darkClass}>Log In</h2>
+				<h2 className={'page__title' + darkClass}>Reset your password</h2>
 				{error && <h3 className={'page__error-msg' + darkClass}>{error}</h3>}
+				{message && <h3 className={'page__msg' + darkClass}>{message}</h3>}
 				<form action="" onSubmit={handleSubmit}>
 					<div className={'form__group' + darkClass}>
 						<input type="email" name="password" ref={emailRef} className={'form__input' + darkClass} />
@@ -43,25 +47,14 @@ export const LogIn = () => {
 							Email
 						</label>
 					</div>
-					<div className={'form__group' + darkClass}>
-						<div className="forgot">
-							<Link to="/forgot-password">Forgot Password?</Link>
-						</div>
-						<input
-							type="password"
-							name="password"
-							ref={passwordRef}
-							className={'form__input' + darkClass}
-							minLength="6"
-						/>
-						<label htmlFor="password" className={'form__label' + darkClass} tabIndex="-1">
-							Password
-						</label>
-					</div>
-					<div className={'form__group' + darkClass}>
+
+					<div className={'form__group--inline' + darkClass}>
 						<button disabled={loading} type="submit" className={'form__submit' + darkClass}>
-							Log In
+							Reset Password
 						</button>
+						<Link to="/login" className="cancel">
+							Cancel
+						</Link>
 					</div>
 				</form>
 				<div className={'to-signup' + darkClass}>

@@ -23,6 +23,8 @@
 	--fullcard-dark-bg: #27424e;
 	--fullcard-light-bg: #d4d8db;
 	--btn-disabled: grey;
+	--error-bg: #bd8791;
+	--msg-bg: #008761;
 
 	/* Font */
 	--font-family: 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif;

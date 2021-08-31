@@ -1,15 +1,13 @@
 @import url('./root.css');
 
-.signup__container,
-.login__container {
+.page__container {
 	position: relative;
 	display: grid;
 	place-items: center;
 	min-height: 100vh;
 }
 
-.signup__wrapper,
-.login__wrapper {
+.page__wrapper {
 	position: relative;
 
 	max-height: fit-content;
@@ -20,8 +18,7 @@
 	background-color: var(--light-100);
 }
 
-.signup__title,
-.login__title {
+.page__title {
 	font-family: var(--font-family);
 	font-size: 2.2rem;
 	color: var(--light-txt);
@@ -56,8 +53,15 @@
 	flex-direction: column-reverse;
 }
 
+.form__group--inline {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .form__submit {
-	margin-top: 1rem;
+	/* margin-top: 1rem; */
 	align-self: flex-end;
 	cursor: pointer;
 }
@@ -83,7 +87,9 @@
 
 .form__submit,
 .to-signup a,
-.to-login a {
+.to-login a,
+.cancel,
+.log-out__button {
 	width: fit-content;
 	padding: 0.3rem 0.5rem;
 	font-family: var(--font-family);
@@ -94,6 +100,21 @@
 	border-radius: 5px;
 	background: var(--primary);
 	box-shadow: var(--box-shadow);
+	cursor: pointer;
+}
+
+.cancel,
+.log-out__button {
+	background: var(--error-bg);
+	color: var(--dark-100);
+	font-weight: 700;
+}
+
+.form__group a {
+	font-family: var(--font-family);
+	font-size: 1.1rem;
+	color: var(--dark-100);
+	font-weight: 700;
 }
 
 .form__input:disabled,
@@ -103,25 +124,56 @@
 	background-color: var(--btn-disabled);
 }
 
+.page__error-msg {
+	padding: 0.5rem;
+	font-family: var(--font-family);
+	margin-bottom: 0.5rem;
+	text-align: center;
+	border-radius: var(--radius);
+	background: var(--error-bg);
+	border: 2px solid var(--dark-100);
+	color: var(--dark-200);
+}
+.page__msg {
+	padding: 0.5rem;
+	font-family: var(--font-family);
+	margin-bottom: 0.5rem;
+	text-align: center;
+	border-radius: var(--radius);
+	background: var(--msg-bg);
+	border: 2px solid var(--dark-100);
+	color: var(--light-100);
+}
+
 /* Dark Theme */
-.signup__container.dark,
-.login__container.dark {
+
+.page__container.dark {
 	background-color: var(--dark-200);
 }
 
-.signup__wrapper.dark,
-.login__wrapper.dark {
+.page__wrapper.dark {
 	background-color: var(--dark-400);
 }
 
-.signup__title.dark,
-.login__title.dark,
+.page__title.dark,
 .form__label.dark,
-.to-signup,
-.to-login {
+.to-signup.dark,
+.to-login.dark {
 	color: var(--dark-txt);
 }
 
 .form__input.dark {
 	border-color: transparent;
+}
+
+.page__error-msg.dark {
+	border: 2px solid var(--light-100);
+}
+
+.page__msg.dark {
+	border: 2px solid var(--light-100);
+}
+
+.form__group.dark a {
+	color: var(--dark-txt);
 }

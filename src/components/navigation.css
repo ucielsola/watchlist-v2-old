@@ -35,6 +35,7 @@
 	color: var(--dark-txt);
 	background-color: var(--primary);
 	box-shadow: var(--box-shadow);
+	white-space: nowrap;
 }
 
 .nav__overlay {

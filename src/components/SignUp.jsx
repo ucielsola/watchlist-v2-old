@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ThemeContext } from '../context/ThemeContext';
 
-import './login-signup.css';
+import './login-signup-forgot-profile.css';
 
 export const SignUp = () => {
 	// Theme Switcher
@@ -36,10 +36,10 @@ export const SignUp = () => {
 	}
 
 	return (
-		<div className={'signup__container' + darkClass}>
-			<div className={'signup__wrapper' + darkClass}>
-				<h2 className={'signup__title' + darkClass}>Sign Up</h2>
-				{error && <h3 className={'signup__error-msg' + darkClass}>{error}</h3>}
+		<div className={'page__container' + darkClass}>
+			<div className={'page__wrapper' + darkClass}>
+				<h2 className={'page__title' + darkClass}>Sign Up</h2>
+				{error && <h3 className={'page__error-msg' + darkClass}>{error}</h3>}
 				<form action="" onSubmit={handleSubmit}>
 					<div className={'form__group' + darkClass}>
 						<input type="email" name="password" ref={emailRef} className={'form__input' + darkClass} />
@@ -47,7 +47,7 @@ export const SignUp = () => {
 							Email
 						</label>
 					</div>
-					<div className={'form__group' + darkClass}>
+					<div className={'form__group' + darkClass} tabIndex="-1">
 						<input
 							type="password"
 							name="password"
@@ -55,7 +55,7 @@ export const SignUp = () => {
 							className={'form__input' + darkClass}
 							minLength="6"
 						/>
-						<label htmlFor="password" className={'form__label' + darkClass}>
+						<label htmlFor="password" className={'form__label' + darkClass} tabIndex="-1">
 							Password
 						</label>
 					</div>
@@ -66,7 +66,12 @@ export const SignUp = () => {
 							ref={passwordConfirmRef}
 							className={'form__input' + darkClass}
 						/>
-						<label htmlFor="password-confirm" className={'form__label' + darkClass} minLength="6">
+						<label
+							htmlFor="password-confirm"
+							className={'form__label' + darkClass}
+							minLength="6"
+							tabIndex="-1"
+						>
 							Confirm Password
 						</label>
 					</div>
