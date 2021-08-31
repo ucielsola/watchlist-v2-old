@@ -2,7 +2,9 @@ import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import axios from 'axios';
 import { FullCard } from './FullCard';
+import { ScrollToTop } from './ScrollToTop';
 import SearchGif from '../assets/search.webp';
+
 import './add.css';
 
 export const Add = () => {
@@ -75,44 +77,48 @@ export const Add = () => {
 	};
 
 	return (
-		<div className={'add__container' + darkClass}>
-			<h2 className={'add__title' + darkClass}>Add Movies and TV Shows</h2>
-			<div className={'input__wrapper' + darkClass}>
-				<input type="text" placeholder="Search..." value={query} onChange={Search} autoFocus={true} />
+		<React.Fragment>
+			<ScrollToTop />
+
+			<div className={'add__container' + darkClass}>
+				<h2 className={'add__title' + darkClass}>Add Movies and TV Shows</h2>
+				<div className={'input__wrapper' + darkClass}>
+					<input type="text" placeholder="Search..." value={query} onChange={Search} autoFocus={true} />
+				</div>
+
+				{results.length > 0 ? (
+					<React.Fragment>
+						<ul className={'add__results' + darkClass}>
+							{results.map((item) => (
+								<FullCard item={item} key={item.id} />
+							))}
+						</ul>
+						{totalPages > 1 && (
+							<React.Fragment>
+								<div className="add__pagination-controls">
+									<button className="add__pagination-button" onClick={prevPage} disabled={prevDisabled}>
+										Previous
+									</button>
+
+									<button className="add__pagination-button" onClick={nextPage} disabled={nextDisabled}>
+										Next
+									</button>
+								</div>
+								<h4 className="add__page-counter">
+									Page {page - 1} of {totalPages} pages
+								</h4>
+							</React.Fragment>
+						)}
+					</React.Fragment>
+				) : (
+					<React.Fragment>
+						{error && <h4 className="add__error-msg">Mhh... nothing found 😨! Try something else...</h4>}
+						<div className={'add__gif-container' + darkClass}>
+							<img src={SearchGif} alt="Sarch GIF from Giphy.com" className={'add__gif' + darkClass} />
+						</div>
+					</React.Fragment>
+				)}
 			</div>
-
-			{results.length > 0 ? (
-				<React.Fragment>
-					<ul className={'add__results' + darkClass}>
-						{results.map((item) => (
-							<FullCard item={item} key={item.id} />
-						))}
-					</ul>
-					{totalPages > 1 && (
-						<React.Fragment>
-							<div className="add__pagination-controls">
-								<button className="add__pagination-button" onClick={prevPage} disabled={prevDisabled}>
-									Previous
-								</button>
-
-								<button className="add__pagination-button" onClick={nextPage} disabled={nextDisabled}>
-									Next
-								</button>
-							</div>
-							<h4 className="add__page-counter">
-								Page {page - 1} of {totalPages} pages
-							</h4>
-						</React.Fragment>
-					)}
-				</React.Fragment>
-			) : (
-				<React.Fragment>
-					{error && <h4 className="add__error-msg">Mhh... nothing found 😨! Try something else...</h4>}
-					<div className={'add__gif-container' + darkClass}>
-						<img src={SearchGif} alt="Sarch GIF from Giphy.com" className={'add__gif' + darkClass} />
-					</div>
-				</React.Fragment>
-			)}
-		</div>
+			</React.Fragment>
 	);
 };

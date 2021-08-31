@@ -48,7 +48,9 @@ export const SignUp = () => {
 					</button>
 				</div>
 			</form>
-			<div className="to-login">Already have an accounet? Log In!</div>
+			<div className="to-login">
+				Already have an account? <Link to="/login">Log In!</Link>
+			</div>
 		</div>
 	);
 };
