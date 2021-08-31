@@ -46,7 +46,7 @@ export const Add = () => {
 
 		axios
 			.get(
-				`https://api.themoviedb.org/3/search/multi?api_key=b8723cef7967276c30d0623e7338bcc4&language=en-US&page=1&include_adult=false&query=${e.target.value}&page=1`
+				`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}&page=1`
 			)
 			.then((res) => {
 				const results = res.data.results.filter((item) => {
