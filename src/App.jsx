@@ -9,6 +9,7 @@ import { Header } from './components/Header';
 import { Watchlist } from './components/Watchlist';
 import { Watched } from './components/Watched';
 import { Add } from './components/Add';
+import { PrivateRoute } from './components/PrivateRoute';
 import './App.css';
 
 function App() {
@@ -18,13 +19,13 @@ function App() {
 			<AuthProvider>
 				<GlobalProvider>
 					<ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-						<Header />
+						{/* <Header /> */}
 						<Switch>
 							<Route path="/signup" component={SignUp} />
 							<Route path="/login" component={LogIn} />
-							<Route exact path="/" component={Watchlist} />
-							<Route path="/watched" component={Watched} />
-							<Route path="/add" component={Add} />
+							<PrivateRoute exact path="/" component={Watchlist} />
+							<PrivateRoute path="/watched" component={Watched} />
+							<PrivateRoute path="/add" component={Add} />
 						</Switch>
 					</ThemeContext.Provider>
 				</GlobalProvider>

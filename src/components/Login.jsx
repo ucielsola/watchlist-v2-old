@@ -1,12 +1,14 @@
 import React, { useRef, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export const LogIn = () => {
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const { signup } = useAuth();
+	const { login } = useAuth();
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
+	const history = useHistory();
 
 	async function handleSubmit(e) {
 		e.preventDefault();
@@ -14,9 +16,10 @@ export const LogIn = () => {
 		try {
 			setError('');
 			setLoading(true);
-			await signup(emailRef.current.value, passwordRef.current.value);
+			await login(emailRef.current.value, passwordRef.current.value);
+			history.push('/');
 		} catch (error) {
-			setError('Failed to create an account');
+			setError('Failed to log in');
 		}
 		setLoading(false);
 	}
@@ -40,7 +43,9 @@ export const LogIn = () => {
 					</button>
 				</div>
 			</form>
-			<div className="to-sign-up">New in town? <Link to="/login">Sign Up!</Link> </div>
+			<div className="to-sign-up">
+				New in town? <Link to="/signup">Sign Up!</Link>{' '}
+			</div>
 		</div>
 	);
 };
