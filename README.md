@@ -1,4 +1,4 @@
-# WatchList
+# WatchList - OLD VERSION! CURRENT VERSION 👉🏽 [HERE](https://github.com/ucielsola/watchlist)
 
 Welcome to my first React Project! I´m working on this project to gain more knowledge and practice my React skills.
 
